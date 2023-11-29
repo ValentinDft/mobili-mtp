@@ -1,1 +1,48 @@
-<p>bike works!</p>
+<main>
+  <div class="title">
+    <h3>
+      Voici la liste des stations de vélo disponible sur la métropole de
+      Montpellier
+    </h3>
+  </div>
+  <!-- <div>
+    <label for="search">Rechercher une station</label>
+    <input
+      type="text"
+      id="search"
+      name="search"
+      placeholder="Rechercher une station"
+    />
+  </div> -->
+
+  <ul class="list-bike-station">
+    @for (station of bikeStationsList; track station.id) {
+    <li
+      class="list-bike-station-item"
+      [style.background-color]="
+        station.availableBikeNumber.value === 0
+          ? '#FFC5C5'
+          : station.availableBikeNumber.value === station.totalSlotNumber.value
+          ? '#C7DCA7'
+          : station.availableBikeNumber.value <
+            station.totalSlotNumber.value / 2
+          ? '#FFEBD8'
+          : '#C7DCA7'
+      "
+      (click)="openOnMaps(station.location.value.coordinates)"
+    >
+      <div class="list-bike-station-item-header">
+        <p>{{ station.address.value.streetAddress }}</p>
+      </div>
+      <div class="list-bike-station-item-body">
+        <p>
+          Nombre de vélo disponible : {{ station.availableBikeNumber.value }}
+        </p>
+        <p>Nombre de place disponible : {{ station.freeSlotNumber.value }}</p>
+        <p>Total de place : {{ station.totalSlotNumber.value }}</p>
+      </div>
+    </li>
+
+    }
+  </ul>
+</main>
