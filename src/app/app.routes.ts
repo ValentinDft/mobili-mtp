@@ -10,5 +10,9 @@ export const routes: Routes = [
     path: 'bike',
     component: HomeComponent,
   },
+  {
+    path: 'parking',
+    component: HomeComponent,
+  },
   { path: '**', redirectTo: '' },
 ];
