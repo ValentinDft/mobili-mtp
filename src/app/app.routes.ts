@@ -1,5 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { BikeComponent } from './pages/bike/bike.component';
+import { ParkingComponent } from './pages/parking/parking.component';
 
 export const routes: Routes = [
   {
@@ -8,11 +10,11 @@ export const routes: Routes = [
   },
   {
     path: 'bike',
-    component: HomeComponent,
+    component: BikeComponent,
   },
   {
     path: 'parking',
-    component: HomeComponent,
+    component: ParkingComponent,
   },
   { path: '**', redirectTo: '' },
 ];
