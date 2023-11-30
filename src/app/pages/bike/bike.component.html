@@ -4,19 +4,18 @@
       Voici la liste des stations de vélo disponible sur la métropole de
       Montpellier
     </h3>
-  </div>
-  <!-- <div>
-    <label for="search">Rechercher une station</label>
     <input
       type="text"
       id="search"
       name="search"
       placeholder="Rechercher une station"
+      (input)="searchBikeStation($event.target)"
     />
-  </div> -->
+  </div>
 
   <ul class="list-bike-station">
-    @for (station of bikeStationsList; track station.id) {
+    @for (station of searchValue.length === 0 ? bikeStationsList :
+    bikeStationsListSearch; track station.id) {
     <li
       class="list-bike-station-item"
       [style.background-color]="
@@ -45,4 +44,9 @@
 
     }
   </ul>
+  @if (bikeStationsListSearch.length === 0 && searchValue.length > 0) {
+  <div class="search-error">
+    <h3>Aucune station ne correspond à votre recherche</h3>
+  </div>
+  }
 </main>
