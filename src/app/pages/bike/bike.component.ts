@@ -22,7 +22,7 @@ export class BikeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.apiSubscription = this.apiService
-      .getBikestation()
+      .getBikesStation()
       .subscribe((data: bikeStationType[]) => {
         this.bikeStationsList = data;
       });

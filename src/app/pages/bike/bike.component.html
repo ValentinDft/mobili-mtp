@@ -13,11 +13,11 @@
     />
   </div>
 
-  <ul class="list-bike-station">
+  <ul class="list">
     @for (station of searchValue.length === 0 ? bikeStationsList :
     bikeStationsListSearch; track station.id) {
     <li
-      class="list-bike-station-item"
+      class="list-item"
       [style.background-color]="
         station.availableBikeNumber.value === 0
           ? '#FFC5C5'
@@ -30,10 +30,10 @@
       "
       (click)="openOnMaps(station.location.value.coordinates)"
     >
-      <div class="list-bike-station-item-header">
+      <div class="list-item-header">
         <p>{{ station.address.value.streetAddress }}</p>
       </div>
-      <div class="list-bike-station-item-body">
+      <div class="list-item-body">
         <p>
           Nombre de vélo disponible : {{ station.availableBikeNumber.value }}
         </p>

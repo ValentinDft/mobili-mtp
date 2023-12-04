@@ -1,1 +1,30 @@
-<p>parking works!</p>
+<main>
+  <div class="title">
+    <h3>
+      Voici la liste des parkings disponible sur la métropole de Montpellier
+    </h3>
+    <!-- <input
+      type="text"
+      id="search"
+      name="search"
+      placeholder="Rechercher une station"
+      (input)="searchBikeStation($event.target)"
+    /> -->
+  </div>
+
+  <ul class="list">
+    @for (parking of parkingList; track parking.id) {
+    <li class="list-item" [style.background-color]="parking.color">
+      <div class="list-item-header">
+        <p>{{ parking.name.value }}</p>
+      </div>
+      <div class="list-item-body">
+        <p>
+          Nombre de place disponible : {{ parking.availableSpotNumber.value }}
+        </p>
+        <p>Nombre total de place : {{ parking.totalSpotNumber.value }}</p>
+      </div>
+    </li>
+    }
+  </ul>
+</main>
